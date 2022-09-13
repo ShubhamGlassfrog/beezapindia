@@ -1,1164 +1,650 @@
-<!DOCTYPE html>
-<html
-  lang="en"
-  xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:v="urn:schemas-microsoft-com:vml"
-  xmlns:o="urn:schemas-microsoft-com:office:office"
->
-  <head>
-    <meta charset="utf-8" />
-    <!-- utf-8 works for most cases -->
-    <meta name="viewport" content="width=device-width" />
-    <!-- Forcing initial-scale shouldn't be necessary -->
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
+    xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<head>
+    <!--[if gte mso 9]>  <xml>   <o:OfficeDocumentSettings>   <o:AllowPNG/>   <o:PixelsPerInch>96</o:PixelsPerInch>   </o:OfficeDocumentSettings>  </xml>  <![endif]-->
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- Use the latest (edge) version of IE rendering engine -->
+    <meta name="format-detection" content="date=no" />
+    <meta name="format-detection" content="address=no" />
+    <meta name="format-detection" content="telephone=no" />
     <meta name="x-apple-disable-message-reformatting" />
-    <!-- Disable auto-scale in iOS 10 Mail entirely -->
-    <title></title>
-    <!-- The title tag shows in email notifications, like Android 4.4. -->
+    <title>BeeZap</title>
+    <!--[if gte mso 9]>  <style type="text/css" media="all">  sup { font-size: 100% !important; }   table, th, td, div, p, strong, span { font-family: Arial,sans-serif !important; } .intro-title-3, .hero-title-2, .hero-title-3 {font-weight:bold;} </style>  <![endif]-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Lobster+Two:ital@1&display=swap"
+        rel="stylesheet">
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Lato:300,400,700"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700"
-      rel="stylesheet"
-    />
-
-    <!-- CSS Reset : BEGIN -->
-    <style>
-      /* What it does: Remove spaces around the email design added by some email clients. */
-      /* Beware: It can remove the padding / margin and add a background color to the compose a reply window. */
-      html,
-      body {
-        margin: 0 auto !important;
-        padding: 0 !important;
-        height: 100% !important;
-        width: 100% !important;
-        background: #f1f1f1;
-      }
-
-      /* What it does: Stops email clients resizing small text. */
-      * {
-        -ms-text-size-adjust: 100%;
-        -webkit-text-size-adjust: 100%;
-      }
-
-      /* What it does: Centers email on Android 4.4 */
-      div[style*="margin: 16px 0"] {
-        margin: 0 !important;
-      }
-
-      /* What it does: Stops Outlook from adding extra spacing to tables. */
-      table,
-      td {
-        mso-table-lspace: 0pt !important;
-        mso-table-rspace: 0pt !important;
-      }
-
-      /* What it does: Fixes webkit padding issue. */
-      table {
-        border-spacing: 0 !important;
-        border-collapse: collapse !important;
-        table-layout: fixed !important;
-        margin: 0 auto !important;
-      }
-
-      /* What it does: Uses a better rendering method when resizing images in IE. */
-      img {
-        -ms-interpolation-mode: bicubic;
-      }
-
-      /* What it does: Prevents Windows 10 Mail from underlining links despite inline CSS. Styles for underlined links should be inline. */
-      a {
-        text-decoration: none;
-      }
-
-      /* What it does: A work-around for email clients meddling in triggered links. */
-      *[x-apple-data-detectors],
-        /* iOS */
-        .unstyle-auto-detected-links *,
-        .aBn {
-        border-bottom: 0 !important;
-        cursor: default !important;
-        color: inherit !important;
-        text-decoration: none !important;
-        font-size: inherit !important;
-        font-family: inherit !important;
-        font-weight: inherit !important;
-        line-height: inherit !important;
-      }
-
-      /* What it does: Prevents Gmail from displaying a download button on large, non-linked images. */
-      .a6S {
-        display: none !important;
-        opacity: 0.01 !important;
-      }
-
-      /* What it does: Prevents Gmail from changing the text color in conversation threads. */
-      .im {
-        color: inherit !important;
-      }
-
-      /* If the above doesn't work, add a .g-img class to any image in question. */
-      img.g-img + div {
-        display: none !important;
-      }
-
-      /* What it does: Removes right gutter in Gmail iOS app: https://github.com/TedGoas/Cerberus/issues/89  */
-      /* Create one of these media queries for each additional viewport size you'd like to fix */
-
-      /* iPhone 4, 4S, 5, 5S, 5C, and 5SE */
-      @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
-        u ~ div .email-container {
-          min-width: 320px !important;
+    <style type="text/css" media="screen">
+        @font-face {
+            font-family: 'Proxima Nova Regular';
+            src: url('https://marketing.fitbit.com/fonts/proxima-nova-regular-852046040da1526ac5ac9cdbee2e3723.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
         }
-      }
 
-      /* iPhone 6, 6S, 7, 8, and X */
-      @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
-        u ~ div .email-container {
-          min-width: 375px !important;
+        @font-face {
+            font-family: 'Proxima Nova Semibold';
+            src: url('https://marketing.fitbit.com/fonts/proxima-nova-semibold-3163eca2ebe9b39d7aaf4ba594ce39d7.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
         }
-      }
 
-      /* iPhone 6+, 7+, and 8+ */
-      @media only screen and (min-device-width: 414px) {
-        u ~ div .email-container {
-          min-width: 414px !important;
+        @font-face {
+            font-family: 'Proxima Nova Bold';
+            src: url('https://marketing.fitbit.com/fonts/proxima-nova-bold-f73f22aa93a861006ae7f54f9968fec0.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
         }
-      }
+
+        @font-face {
+            font-family: 'Proxima Nova Black';
+            src: url('https://marketing.fitbit.com/fonts/proxima-nova-black-b68819090cb3f466a9dd7d473d9e12a8.woff') format('woff');
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Proxima Nova Extrabold';
+            src: url('https://marketing.fitbit.com/fonts/proxima-nova-xbold-5d8ad01e573a280ed04306c1bfe5ef83.woff') format('woff');
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Proxima Nova Light';
+            font-style: normal;
+            font-weight: normal;
+            src: url("https://marketing.fitbit.com/fonts/proxima-nova-light-25b45c331498ff377abe22554f05943d.eot") format("embedded-opentype"), url("https://marketing.fitbit.com/fonts/proxima-nova-light-b08aa39dfd53fb455693786505ed211e.woff") format("woff"), url("https://marketing.fitbit.com/fonts/proxima-nova-light-982154eacb03c17d9cf072a97208af46.ttf") format("truetype"), url("https://marketing.fitbit.com/fonts/proxima-nova-light-918e11e776f56b8c6097ae4af49461e6.svg") format("svg");
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Linked Styles */
+        body {
+            padding: 0 !important;
+            margin: 0 !important;
+            display: block !important;
+            min-width: 100% !important;
+            width: 100% !important;
+            background: #f5f5f5;
+            -webkit-text-size-adjust: none
+        }
+
+        a {
+            color: #002a3a;
+            text-decoration: none
+        }
+
+        p {
+            padding: 0;
+            margin: 0
+        }
+
+        img {
+            -ms-interpolation-mode: bicubic;
+            /* Allow smoother rendering of resized image in Internet Explorer */
+        }
+
+        .mcnPreviewText {
+            display: none !important;
+        }
+
+        .header-text a {
+            color: #939c9e;
+            text-decoration: underline
+        }
+
+
+
+
+        .btn-1 a,
+        .intro-title-1 a,
+        .intro-title-3 a,
+        .intro-title-4 a {
+            color: #ffffff;
+            text-decoration: none
+        }
+
+        /* Mobile styles */
+        @media only screen and (max-device-width: 414px),
+        only screen and (max-width: 500px) {
+            .mobile-shell {
+                width: 414px !important;
+                min-width: 414px !important;
+            }
+
+            .m-center {
+                text-align: center !important;
+            }
+
+            .center {
+                margin: 0 auto !important;
+            }
+
+            .td {
+                width: 100% !important;
+                min-width: 100% !important;
+            }
+
+            .m-br-15 {
+                height: 15px !important;
+            }
+
+            .m-td,
+            .hidden,
+            .m-hide {
+                display: none !important;
+                width: 0 !important;
+                height: 0 !important;
+                font-size: 0 !important;
+                line-height: 0 !important;
+                min-height: 0 !important;
+            }
+
+            .m-block {
+                display: block !important;
+            }
+
+            .hauto {
+                height: auto !important;
+            }
+
+            .mw-30 img {
+                width: 30px !important;
+                height: auto !important;
+            }
+
+            .mw-200 img {
+                width: 100% !important;
+                height: auto !important;
+            }
+
+            .fluid-img img {
+                width: 100% !important;
+                max-width: 100% !important;
+                height: auto !important;
+            }
+
+            .column {
+                float: left !important;
+                width: 100% !important;
+                display: block !important;
+            }
+
+            .content-spacing {
+                width: 15px !important;
+            }
+
+            /* Padding */
+            .p-0 {
+                padding: 0 !important;
+            }
+
+            .p-15 {
+                padding: 15px !important;
+            }
+
+            .pb-5 {
+                padding-bottom: 5px !important;
+            }
+
+            .pb-10 {
+                padding-bottom: 10px !important;
+            }
+
+            .pb-15 {
+                padding-bottom: 15px !important;
+            }
+
+            .pb-20 {
+                padding-bottom: 20px !important;
+            }
+
+            .pb-25 {
+                padding-bottom: 25px !important;
+            }
+
+            .pb-30 {
+                padding-bottom: 30px !important;
+            }
+
+            .p0-10 {
+                padding: 0 10px !important;
+            }
+
+            .p0-15 {
+                padding: 0 15px !important;
+            }
+
+            .p20-15 {
+                padding: 20px 15px !important;
+            }
+
+            .p25-15 {
+                padding: 25px 15px !important;
+            }
+
+            .p30-15 {
+                padding: 30px 15px !important;
+            }
+
+            /*   .p35-15 { padding: 35px 15px !important; }*/
+
+            .p0-15-15 {
+                padding: 0 15px 0px !important;
+            }
+
+            .p0-15-20 {
+                padding: 0 15px 20px !important;
+            }
+
+            .p0-15-30 {
+                padding: 0 15px 30px !important;
+            }
+
+            .p25-0-40 {
+                padding: 15px 0 30px !important;
+            }
+
+            /* Intro */
+            .headline {
+                font-size: 32px !important;
+                line-height: 39px !important;
+                padding: 50px 51px 15px 51px !important;
+            }
+
+            .hero-title-1 {
+                font-size: 18px !important;
+                line-height: 22px !important;
+                padding: 0px 51px 30px 51px !important;
+            }
+
+            .hero-title-2 {
+                font-size: 36px !important;
+                line-height: 42px !important;
+                padding: 0px 25px 0px 25px !important;
+            }
+
+            .hero-title-3 {
+
+                font-size: 34px !important;
+                line-height: 27px !important;
+            }
+
+            .intro-title-1 {
+                font-size: 32px !important;
+                line-height: 34px !important;
+                padding: 46px 53px 15px 53px !important;
+                letter-spacing: 0.32px !important;
+            }
+
+            .intro-title-2 {
+                font-size: 18px !important;
+                line-height: 22px !important;
+                padding: 0px 53px 0px 53px !important;
+            }
+
+            .intro-title-3 {
+                font-size: 20px !important;
+                line-height: 24px !important;
+                padding-bottom: 30px !important;
+            }
+
+            .intro-title-4 {
+                font-size: 24px !important;
+                line-height: 29px !important;
+                padding: 50px 53px 15px 53px !important;
+                letter-spacing: 1.2px !important;
+            }
+
+            .disclaimer {
+                font-size: 18px !important;
+                line-height: 22px !important;
+                padding: 15px 53px 15px !important;
+            }
+
+            .disclaimer2 {
+                font-size: 18px !important;
+                line-height: 22px !important;
+                padding: 40px 51px 40px !important;
+            }
+
+            .intro-title-5 {
+                font-size: 20px !important;
+                line-height: 24px !important;
+                padding: 0px 53px 40px 53px !important;
+            }
+
+            .intro-title-6 {
+                font-size: 14px !important;
+                line-height: 15px !important;
+                padding: 7px 41px !important;
+            }
+
+            /*Standard*/
+            .no-mobile {
+                text-indent: -99999em;
+                display: none !important;
+            }
+
+            .mobile-only {
+                text-indent: 0 !important;
+                display: block !important;
+                /*width: 480px !important;*/
+                width: 100% !important;
+                height: auto !important;
+                visibility: visible !important;
+                overflow: visible !important;
+                max-height: none !important;
+            }
+
+            .mobile-headline {
+                padding: 45px 50px 20px 50px !important;
+                font-size: 24px !important;
+                line-height: 29px !important;
+            }
+
+            /* Titles */
+            .title-1 {
+                font-size: 15px !important;
+                line-height: 19px !important;
+            }
+
+            /* Button */
+            .btn-1 {
+                padding: 0 !important;
+            }
+
+            .btn-1 a {
+                display: inline-block;
+                padding: 6px 22px !important;
+            }
+
+            /* Table */
+            .table-text-1 {
+                font-size: 14px !important;
+                line-height: 18px !important;
+            }
+
+            .hide-for-desktop {
+                display: block !important;
+                max-width: 100% !important;
+                max-height: 100% !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                width: auto !important;
+                height: auto !important;
+            }
+
+            .hero-mobile {
+                display: block !important;
+            }
+
+            .table-title-c {
+                padding: 24px !important;
+            }
+
+        }
+
+        @media screen and (max-width:480px) {
+            .ForYahoo {
+                max-height: 0 !important;
+                display: block !important;
+                mso-hide: all !important;
+                overflow: visible !important;
+                font-size: 0 !important;
+                padding-bottom: 50px !important;
+            }
+
+            .notForYahoo {
+                max-height: 0 !important;
+                display: none !important;
+                mso-hide: all !important;
+                overflow: hidden !important;
+                font-size: 0 !important;
+            }
+        }
     </style>
+</head>
 
-    <!-- CSS Reset : END -->
+<body class="body"
+    style="padding:0 !important; margin:0 !important; display:block !important; min-width:100% !important; width:100% !important; background:#f5f5f5; -webkit-text-size-adjust:none;">
+    <!-- MOBILE PREHEADER PUSH ANY CONTENT AFTER THE PREHEADER FROM SHOWING UP INSERT UNDER BODY TAG -->
 
-    <!-- Progressive Enhancements : BEGIN -->
-    <style>
-      .primary {
-        background: #ffc0d0;
-      }
 
-      .bg_white {
-        background: #ffffff;
-      }
 
-      .bg_light {
-        background: #fafafa;
-      }
+    <!-- Insert &zwnj;&nbsp; hack after hidden preview text -->
 
-      .bg_black {
-        background: #000000;
-      }
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#f5f5f5">
+        <tr>
+            <td align="center" valign="top">
+                <table width="600" border="0" cellspacing="0" cellpadding="0" class="mobile-shell">
+                    <tr>
+                        <td class="td" style="width:600px; min-width:600px; padding:0; margin:0; font-weight:normal;">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td style="">
+                                        <!-- Header -->
+                                        
+                                        <!-- END Header -->
+                                        <!-- Start Content -->
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="p35-15">
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
 
-      .bg_dark {
-        background: rgba(0, 0, 0, 0.8);
-      }
+                                                        <!-- headline -->
+                                                        <tr>
+                                                            <td bgcolor="#ffffff" class="headline" style="padding: 50px 135px 0px 135px;
+                                                             font-family: 'Lobster', cursive;
+                                                             font-family: emoji;
+                                                             font-size: 36px;
+                                                             line-height: 56px;
+                                                             font-weight: 500;
+                                                             text-align: center;
+                                                             letter-spacing: .01em;"">
 
-      .email-section {
-        padding: 2.5em;
-      }
+                                                            </td>
+                                                     </tr>
+                                                     <!-- #headline -->
 
-      /*BUTTON*/
-      .btn {
-        padding: 5px 20px;
-        display: inline-block;
-      }
+                                                     <!--  hero-title-1 -->
+                                                    
+                                                     <!-- #hero-title-1 -->
 
-      .btn.btn-primary {
-        border-radius: 5px;
-        background: #ffc0d0;
-        color: #ffffff;
-      }
+                                                     <!-- Button -->
+                                                     
+                                             </td>
+                                         </tr>
+                                         <!-- END HERO -->
+                                     </table>
+                                     <!-- HERO Images-->
+                                     <table width=" 100%" border="0" cellspacing="0" cellpadding="0">
 
-      .btn.btn-white {
-        border-radius: 5px;
-        background: #ffffff;
-        color: #000000;
-      }
+                                                        <tr>
+                                                            <td bgcolor="#ffffff">
+                                                                <div style="">
+                                                                    <a href="https://beezap.in/"
+                                                                        target="_blank">
+                                                                        <img src="attachments/Emailer1.png" border="0"
+                                                                            alt="" align="top" alt="leggings"
+                                                                            style="height: 35rem;" />
+                                                                    </a>
+                                                                </div>
+                                                            </td>
 
-      .btn.btn-white-outline {
-        border-radius: 5px;
-        background: transparent;
-        border: 1px solid #fff;
-        color: #fff;
-      }
+                                                        </tr>
+                                                        <!-- END HERO Images-->
+                                                    </table>
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
 
-      .btn.btn-black {
-        border-radius: 0px;
-        background: #000;
-        color: #fff;
-      }
+                                                        <tr>
+                                                            <td bgcolor="#ffffff">
+                                                                <div style="text-align: center;">
+                                                                    <a href="https://beezap.in/"
+                                                                        target="_blank">
+                                                                        <img src="attachments/Emailer – 1.png"
+                                                                            border="0" alt="" align="top" alt="leggings"
+                                                                            style="height: 35rem;" />
+                                                                    </a>
+                                                                </div>
+                                                            </td>
 
-      .btn.btn-black-outline {
-        border-radius: 0px;
-        background: transparent;
-        border: 2px solid #000;
-        color: #000;
-        font-weight: 700;
-      }
+                                                        </tr>
+                                                        <!-- END HERO Images-->
+                                                    </table>
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
 
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        font-family: "Playfair Display", sans-serif;
-        color: #000000;
-        margin-top: 0;
-        font-weight: 400;
-      }
+                                                        <tr>
+                                                            <td bgcolor="#ffffff">
+                                                                <div style="text-align: center;">
+                                                                    <a href="https://play.google.com/store/apps/details?id=myapp.beezap"
+                                                                        target="_blank">
+                                                                        <img src="attachments/Emailer – 2.png"
+                                                                            border="0" alt="" align="top" alt="leggings"
+                                                                            style="height: 35rem;" />
+                                                                    </a>
+                                                                </div>
+                                                            </td>
 
-      body {
-        font-family: "Lato", sans-serif;
-        font-weight: 400;
-        font-size: 15px;
-        line-height: 1.8;
-        color: rgba(0, 0, 0, 0.5);
-      }
+                                                        </tr>
+                                                        <!-- END HERO Images-->
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <!-- END Content -->
+                                        <!--Features-->
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td>
+                                                    <!--Start Content-->
+                                                    <!--Desktop RTBs-->
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0"
+                                                        bgcolor="#ffffff">
 
-      a {
-        color: #ffc0d0;
-      }
 
-      table {
-      }
 
-      /*LOGO*/
+                                                       
+                                                    </table>
 
-      .logo h1 {
-        margin: 0;
-      }
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0"
+                                                        bgcolor="#ffffff">
+                                                        <tr>
+                                                            <td bgcolor="#002A3A" class="disclaimer2"
+                                                                style="padding: 40px 77px 40px 77px;color:#FFFFFF; font-family: 'Proxima Nova Light', Arial,sans-serif; font-size:16px; line-height:20px; font-weight: normal; text-align:center; letter-spacing: .01em">
+                                                                Book Your First Consultation with beezap & get 5% Off.
+                                                               
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <!-- Footer -->
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0"
+                                                        bgcolor="#ffffff">
+                                                        <tr>
+                                                            <td>
+                                                                <style>
+                                                                    .nowrap {
+                                                                        word-break: keep-all;
+                                                                        -moz-hyphens: none;
+                                                                        -ms-hyphens: none;
+                                                                        -webkit-hyphens: none;
+                                                                        hyphens: none;
+                                                                    }
 
-      .logo h1 a {
-        color: #000000;
-        font-size: 30px;
-        /*text-transform: uppercase;*/
-        font-family: "Playfair Display", sans-serif;
-      }
+                                                                    a[x-apple-data-detectors] {
+                                                                        color: inherit !important;
+                                                                        text-decoration: none !important;
+                                                                        font-size: inherit !important;
+                                                                        font-family: inherit !important;
+                                                                        font-weight: inherit !important;
+                                                                        line-height: inherit !important;
+                                                                    }
+                                                                </style>
 
-      .navigation {
-        padding: 0;
-        padding: 1em 0;
-        /*background: rgba(0,0,0,1);*/
-        border-top: 1px solid rgba(0, 0, 0, 0.05);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        margin-bottom: 0;
-      }
+                                                                <table border="0" cellpadding="0" cellspacing="0"
+                                                                    style="border:none;border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0; background-color:#ffffff;"
+                                                                    width="100%" class="wrapper mobileContainer">
 
-      .navigation li {
-        list-style: none;
-        display: inline-block;
-        margin-left: 5px;
-        margin-right: 5px;
-        font-size: 13px;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-      }
+                                                                    <tr>
+                                                                        <td class="mobileContainer" align="center"
+                                                                            style="font-family:Helvetica, Arial, sans-serif; color:#939c9e; font-size:0px; padding-top:24px; font-weight:100; background-color:#ffffff; width:100%; ">
+                                                                        </td>
+                                                                    </tr>
 
-      .navigation li a {
-        color: rgba(0, 0, 0, 1);
-      }
+                                                                    <tr>
+                                                                        <td class="mobileContainer mobileFooter nowrap"
+                                                                            align="center"
+                                                                            style="font-family:Helvetica, Arial, sans-serif; font-size:11px; line-height:18px; color:#939c9e; padding-left:30px; padding-right:30px; padding-bottom:40px; background-color:#ffffff;  width:100%;">
 
-      .unbox-img {
-        width: -webkit-fill-available;
-      }
+                                                                            <a href="https://www.facebook.com/beezapindia"
+                                                                                target="_blank"><img
+                                                                                    src="attachments/facebook.png"
+                                                                                    style="width: 1.5rem" alt="" /></a>
+                                                                                    <a href="https://www.instagram.com/beezapindia/"
+                                                                                    target="_blank"><img
+                                                                                        src="attachments/instagram.png"
+                                                                                        style="width: 1.5rem" alt="" /></a>  
+                                                                                        <a href="https://www.linkedin.com/company/83543831/admin/"
+                                                                                        target="_blank"><img
+                                                                                            src="attachments/linkedin.png"
+                                                                                            style="width: 1.5rem" alt="" /></a> 
+                                                                                             <a href="https://twitter.com/home"
+                                                                                            target="_blank"><img
+                                                                                                src="attachments/twitter.png"
+                                                                                                style="width: 1.5rem" alt="" /></a>
+                                                                            <p>
+                                                                                You received this message because you've
+                                                                                registered or
+                                                                                accepted our invitation to receive
+                                                                                emails from BEEZAP.
+                                                                            </p>
+                                                                            <p>
+                                                                                Please Note：to stop receiving emails,
+                                                                                click on the
+                                                                                <a href="http://marketing.unboxbasics.com/campaigns/unsubscribe.php"
+                                                                                    target="_blank" class="" style="
+                       background-color: #fff !important;
+                       color: #000;
+                       text-decoration: underline;
+                     ">UNSUBSCRIBE</a> link, and do not directly reply
+                                                                                to this email, as this email was
+                                                                                generated automatically
+                                                                                and thus your unsubscription request
+                                                                                will not be
+                                                                                processed.
+                                                                            </p>
+                                                                            <p>
+                                                                                <a
+                                                                                    href="https://www.unboxbasics.com/privacy-policy">PRIVACY
+                                                                                    POLICY </a>|
+                                                                                <a
+                                                                                    href="https://www.unboxbasics.com/terms-conditions">CONDITIONS
+                                                                                    & TERMS</a>
+                                                                            </p>
+                                                                        </td>
+                                                                    </tr>
 
-      /*HERO*/
-      .hero {
-        position: relative;
-        z-index: 0;
-      }
 
-      .hero .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        content: "";
-        width: 100%;
-        background: #000000;
-        z-index: -1;
-        opacity: 0.2;
-      }
-
-      .hero .text {
-        color: rgba(255, 255, 255, 0.9);
-        max-width: 50%;
-        margin: 0 auto 0;
-      }
-
-      .hero .text h2 {
-        color: #fff;
-        font-size: 30px;
-        margin-bottom: 0;
-        font-weight: 300;
-        line-height: 1.4;
-      }
-
-      .hero .text h2 span {
-        font-weight: 600;
-        color: #ffc0d0;
-      }
-
-      /*INTRO*/
-      .intro {
-        position: relative;
-        z-index: 0;
-      }
-
-      .intro .text {
-        color: rgba(0, 0, 0, 0.3);
-      }
-
-      .intro .text h2 {
-        color: #000;
-        font-size: 34px;
-        margin-bottom: 0;
-        font-weight: 300;
-      }
-
-      .intro .text h2 span {
-        font-weight: 600;
-        color: #ffc0d0;
-      }
-
-      /*PRODUCT*/
-      .text-product {
-      }
-
-      .text-product .price {
-        font-size: 20px;
-        color: #fff;
-        display: inline-block;
-        margin-bottom: 1em;
-        border: 2px solid #fff;
-        padding: 0 10px;
-      }
-
-      .text-product h2 {
-        font-family: "Lato", sans-serif;
-      }
-
-      /*HEADING SECTION*/
-      .heading-section {
-      }
-
-      .heading-section h2 {
-        color: #000000;
-        font-size: 28px;
-        margin-top: 0;
-        line-height: 1.4;
-        font-weight: 400;
-      }
-
-      .heading-section .subheading {
-        margin-bottom: 20px !important;
-        display: inline-block;
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        color: rgba(0, 0, 0, 0.4);
-        position: relative;
-      }
-
-      .heading-section .subheading::after {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: -10px;
-        content: "";
-        width: 100%;
-        height: 2px;
-        background: #ffc0d0;
-        margin: 0 auto;
-      }
-
-      .heading-section-white {
-        color: rgba(255, 255, 255, 0.8);
-      }
-
-      .heading-section-white h2 {
-        /* font-family: ; */
-        line-height: 1;
-        padding-bottom: 0;
-      }
-
-      .heading-section-white h2 {
-        color: #ffffff;
-      }
-
-      .heading-section-white .subheading {
-        margin-bottom: 0;
-        display: inline-block;
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        color: rgba(255, 255, 255, 0.4);
-      }
-
-      ul.social {
-        padding: 0;
-      }
-
-      ul.social li {
-        display: inline-block;
-        margin-right: 10px;
-      }
-
-      /*FOOTER*/
-
-      .footer {
-        border-top: 1px solid rgba(0, 0, 0, 0.05);
-        color: rgba(0, 0, 0, 0.5);
-      }
-
-      .footer .heading {
-        color: #000;
-        font-size: 20px;
-      }
-
-      .footer ul {
-        margin: 0;
-        padding: 0;
-      }
-
-      .footer ul li {
-        list-style: none;
-        margin-bottom: 10px;
-      }
-
-      .footer ul li a {
-        color: rgba(0, 0, 0, 1);
-      }
-
-      @media screen and (max-width: 500px) {
-      }
-    </style>
-  </head>
-
-  <body
-    width="100%"
-    style="
-      margin: 0;
-      padding: 0 !important;
-      mso-line-height-rule: exactly;
-      background-color: #222222;
-    "
-  >
-    <center style="width: 100%; background-color: #f1f1f1">
-      <div
-        style="
-          display: none;
-          font-size: 1px;
-          max-height: 0px;
-          max-width: 0px;
-          opacity: 0;
-          overflow: hidden;
-          mso-hide: all;
-          font-family: sans-serif;
-        "
-      >
-        &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
-      </div>
-      <div style="max-width: 600px; margin: 0 auto" class="email-container">
-        <!-- BEGIN BODY -->
-        <table
-          align="center"
-          role="presentation"
-          cellspacing="0"
-          cellpadding="0"
-          border="0"
-          width="100%"
-          style="margin: auto"
-        >
-          <tr>
-            <td
-              valign="top"
-              class="bg_white"
-              style="padding: 1em 2.5em 0 2.5em"
-            >
-              <table
-                role="presentation"
-                border="0"
-                cellpadding="0"
-                cellspacing="0"
-                width="100%"
-              >
-                <tr>
-                  <td class="logo" style="text-align: center">
-                    <img src="images/unboxlogo.webp" />
-                    <h1><a href="#">UNBOX</a></h1>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-          <!-- end tr -->
-          <tr>
-            <td valign="top" class="bg_white" style="padding: 0">
-              <table
-                role="presentation"
-                border="0"
-                cellpadding="0"
-                cellspacing="0"
-                width="100%"
-              >
-                <tr>
-                  <td width="60%" style="text-align: center">
-                    <ul class="navigation">
-                      <li><a href="https://www.unboxbasics.com/">Home</a></li>
-                      <li>
-                        <a href="https://www.unboxbasics.com/">LEGGINGS</a>
-                      </li>
-                      <li>
-                        <a href="https://www.unboxbasics.com/boutique/t-shirts"
-                          >TOP</a
-                        >
-                      </li>
-                      <li>
-                        <a href="https://www.unboxbasics.com/boutique/shorts"
-                          >SHORTS</a
-                        >
-                      </li>
-                      <li>
-                        <a href="https://www.unboxbasics.com/boutique/dresses"
-                          >DRESSES</a
-                        >
-                      </li>
-                      <li>
-                        <a href="https://www.unboxbasics.com/boutique/shoes"
-                          >SHOES</a
-                        >
-                      </li>
-                      <li>
-                        <a href="https://www.unboxbasics.com/boutique/shoes"
-                          >SKIRTS</a
-                        >
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-          <!-- end tr -->
-          <tr>
-            <td valign="middle" ; class="hero bg_white" ;>
-              <img class="unbox-img" src="images/unboxbasics.png" />
-              <!-- <div class="overlay"></div>
-              <table>
-                <tr>
-                  <td>
-                    <div
-                      class="text"
-                      style="padding: 0 4em; text-align: center"
-                    >
-                      <h2>Up to 50% off Selected Womens Items</h2>
-                      <p>
-                        A small river named Duden flows by their place and
-                        supplies it with the necessary regelialia.
-                      </p>
-                      <p>
-                        <a href="#" class="btn btn-primary">Start Shoping</a>
-                      </p>
-                    </div>
-                  </td>
-                </tr>
-              </table> -->
-            </td>
-          </tr>
-          <!-- end tr -->
-          <tr>
-            <td class="intro bg_white" style="padding: 2em 0 4em 0">
-              <table style="width: 100%">
-                <tr>
-                  <td>
-                    <div
-                      class="text"
-                      style="display: flex; justify-content: space-evenly"
-                    >
-                      <div>
-                        <h2>
-                          <strong>15% <span>OFF</span></strong>
-                        </h2>
-                        <p><strong>S.R 500+</strong></p>
-                      </div>
-
-                      <div>
-                        <h2>
-                          <strong>18% <span>OFF</span> </strong>
-                        </h2>
-                        <p><strong>S.R 1800+</strong></p>
-                      </div>
-
-                      <div>
-                        <h2>
-                          <strong>CODE:<span>TABBY10</span></strong>
-                        </h2>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-          <tr>
-            <td
-              valign="middle"
-              class="intro bg_white"
-              style="padding: 2em 0 4em 0"
-            >
-              <table>
-                <tr>
-                  <td>
-                    <div style="padding-left: 1rem">
-                      <h2>
-                        <strong><span>4</span> interest-free payments </strong>
-                      </h2>
-                      <p>
-                        Buy now and split the cost into 4 equal payments. Your
-                        debit or credit card will be billed every month. No
-                        interest and no fees.
-                      </p>
-                    </div>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-          <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-            <tr>
-              <td></td>
-            </tr>
-          </table>
-          <!-- end tr -->
-          <tr>
-            <td class="bg_white">
-              <table
-                role="presentation"
-                cellspacing="0"
-                cellpadding="0"
-                border="0"
-                width="100%"
-              >
-                <tr>
-                  <td
-                    class="primary email-section"
-                    style="padding: 0; width: 100%"
-                  >
-                    <table
-                      role="presentation"
-                      border="0"
-                      cellpadding="0"
-                      cellspacing="0"
-                      width="100%"
-                    >
-                      <tr>
-                        <td valign="middle" width="50%">
-                          <table
-                            role="presentation"
-                            cellspacing="0"
-                            cellpadding="0"
-                            border="0"
-                            width="100%"
-                          >
-                            <tr>
-                              <td
-                                class="text-product"
-                                style="text-align: left; padding: 20px 30px"
-                              >
-                                <div class="heading-section">
-                                  <span class="price"
-                                    >AED 100 (approx. ₹2,122.13)</span
-                                  >
-                                  <h2 style="font-size: 20px">
-                                    LYCRA HIGH-WAISTED LEGGINGS SKY BLUE
-                                  </h2>
-                                  <p>
-                                    Lycra® high waisted women's light blue
-                                    leggings with high elasticity, shiny finish,
-                                    tight shape, high waist and anatomical
-                                    waistband.
-                                  </p>
-                                  <p>
-                                    <a
-                                      href="https://www.unboxbasics.com/boutique-products/lg-10004/lycra-high-waisted-leggings-sky-blue/22fe7512-90e2-487e-93bd-8baa1c3abbcc"
-                                      class="btn btn-black"
-                                      target="_blank"
-                                      >Shop now</a
-                                    >
-                                  </p>
-                                </div>
-                              </td>
-                            </tr>
-                          </table>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <!-- END Footer -->
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
                         </td>
-                        <td valign="middle" width="50%">
-                          <table
-                            role="presentation"
-                            cellspacing="0"
-                            cellpadding="0"
-                            border="0"
-                            width="100%"
-                          >
-                            <tr>
-                              <td>
-                                <img
-                                  src="images/-284 high res.jpg"
-                                  alt=""
-                                  style="
-                                    width: 100%;
-                                    max-width: 600px;
-                                    height: auto;
-                                    margin: auto;
-                                    display: block;
-                                  "
-                                />
-                              </td>
-                            </tr>
-                          </table>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-                <!-- end: tr -->
+                    </tr>
+                </table>
+                <img src="http://click.e.fitbit.com/open.aspx?ffcb10-feb81d72726d0378-fe2a167670650678701679-fe87137275620d7472-ff6a177275-fe201574706d07797d1d74-ff3117747761"
+                    width="1" height="1" alt=""></custom>
+</body>
 
-                <!-- end: tr -->
-
-                <!-- end: tr -->
-                <tr>
-                  <td
-                    class="primary email-section"
-                    style="padding: 0; width: 100%"
-                  >
-                    <table
-                      role="presentation"
-                      border="0"
-                      cellpadding="0"
-                      cellspacing="0"
-                      width="100%"
-                    >
-                      <tr>
-                        <td valign="middle" width="50%">
-                          <table
-                            role="presentation"
-                            cellspacing="0"
-                            cellpadding="0"
-                            border="0"
-                            width="100%"
-                          >
-                            <tr>
-                              <td>
-                                <img
-                                  src="images/fistik-yesil-tek-cep-detayli-oversize--495b-4.jpg"
-                                  alt=""
-                                  style="
-                                    width: 100%;
-                                    max-width: 600px;
-                                    height: auto;
-                                    margin: auto;
-                                    display: block;
-                                  "
-                                />
-                              </td>
-                            </tr>
-                          </table>
-                        </td>
-                        <td valign="middle" width="50%">
-                          <table
-                            role="presentation"
-                            cellspacing="0"
-                            cellpadding="0"
-                            border="0"
-                            width="100%"
-                          >
-                            <tr>
-                              <td
-                                class="text-product"
-                                style="text-align: left; padding: 20px 30px"
-                              >
-                                <div class="heading-section">
-                                  <span class="price"
-                                    >AED 140.00 (approx. ₹2,970.98)
-                                  </span>
-                                  <h2 style="font-size: 20px">
-                                    Neon Green Single Pocket Detailed Oversize
-                                    Fabia Shirt
-                                  </h2>
-                                  <p>80% VISCOSE 15% POLYESTER 5% Elastane</p>
-                                  <p>
-                                    <a
-                                      href="https://www.unboxbasics.com/boutique-products/8861/neon-green-single-pocket-detailed-oversize-fabia-shirt/1ee8d409-b174-4ffa-8752-2ad8dddde40b"
-                                      class="btn btn-black"
-                                      >Shop now</a
-                                    >
-                                  </p>
-                                </div>
-                              </td>
-                            </tr>
-                          </table>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-                <!-- end: tr -->
-                <tr>
-                  <td
-                    class="primary email-section"
-                    style="padding: 0; width: 100%"
-                  >
-                    <table
-                      role="presentation"
-                      border="0"
-                      cellpadding="0"
-                      cellspacing="0"
-                      width="100%"
-                    >
-                      <tr>
-                        <td valign="middle" width="50%">
-                          <table
-                            role="presentation"
-                            cellspacing="0"
-                            cellpadding="0"
-                            border="0"
-                            width="100%"
-                          >
-                            <tr>
-                              <td
-                                class="text-product"
-                                style="text-align: left; padding: 20px 30px"
-                              >
-                                <div class="heading-section">
-                                  <span class="price"
-                                    >AED 100.00 (approx. ₹2,122.13)</span
-                                  >
-                                  <h2 style="font-size: 20px">
-                                    LYCRA HIGH-WAISTED LEGGINGS OLIVE
-                                  </h2>
-                                  <p>
-                                    Lycra® high waisted women's olive green
-                                    leggings with high elasticity, shiny finish,
-                                    tight shape, high waist and anatomical
-                                    waistband.
-                                  </p>
-                                  <p>
-                                    <a
-                                      href="https://www.unboxbasics.com/boutique-products/lg-10028/lycra-high-waisted-leggings-olive/a35170ce-5ee4-44c6-a984-0ab419a2dc5e"
-                                      class="btn btn-black"
-                                      >Shop now</a
-                                    >
-                                  </p>
-                                </div>
-                              </td>
-                            </tr>
-                          </table>
-                        </td>
-                        <td valign="middle" width="50%">
-                          <table
-                            role="presentation"
-                            cellspacing="0"
-                            cellpadding="0"
-                            border="0"
-                            width="100%"
-                          >
-                            <tr>
-                              <td>
-                                <img
-                                  src="images/OLIVE GREEN.jpg"
-                                  alt=""
-                                  style="
-                                    width: 100%;
-                                    max-width: 600px;
-                                    height: auto;
-                                    margin: auto;
-                                    display: block;
-                                  "
-                                />
-                              </td>
-                            </tr>
-                          </table>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-                <!-- end: tr -->
-                <tr>
-                  <td
-                    class="primary email-section"
-                    style="padding: 0; width: 100%"
-                  >
-                    <table
-                      role="presentation"
-                      border="0"
-                      cellpadding="0"
-                      cellspacing="0"
-                      width="100%"
-                    >
-                      <tr>
-                        <td valign="middle" width="50%">
-                          <table
-                            role="presentation"
-                            cellspacing="0"
-                            cellpadding="0"
-                            border="0"
-                            width="100%"
-                          >
-                            <tr>
-                              <td>
-                                <img
-                                  src="images/pembe-tek-cep-detayli-oversize-fabia-g-57-8ee.jpg"
-                                  alt=""
-                                  style="
-                                    width: 100%;
-                                    max-width: 600px;
-                                    height: auto;
-                                    margin: auto;
-                                    display: block;
-                                  "
-                                />
-                              </td>
-                            </tr>
-                          </table>
-                        </td>
-                        <td valign="middle" width="50%">
-                          <table
-                            role="presentation"
-                            cellspacing="0"
-                            cellpadding="0"
-                            border="0"
-                            width="100%"
-                          >
-                            <tr>
-                              <td
-                                class="text-product"
-                                style="text-align: left; padding: 20px 30px"
-                              >
-                                <div class="heading-section">
-                                  <span class="price"
-                                    >AED 140.00 (approx. ₹2,970.98)
-                                  </span>
-                                  <h2 style="font-size: 20px">
-                                    Pink Single Pocket Detailed Oversize Fabia
-                                    Shirt
-                                  </h2>
-                                  <p>80% VISCOSE 15% POLYESTER 5% Elastane</p>
-                                  <p>
-                                    <a
-                                      href="https://www.unboxbasics.com/boutique-products/8087/pink-single-pocket-detailed-oversize-fabia-shirt/12f71ea8-8e5d-4483-939b-e1f590e79e99"
-                                      class="btn btn-black"
-                                      >Shop now</a
-                                    >
-                                  </p>
-                                </div>
-                              </td>
-                            </tr>
-                          </table>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-                <!-- end: tr -->
-                <tr>
-                  <td
-                    class="primary email-section"
-                    style="padding: 0; width: 100%"
-                  >
-                    <table
-                      role="presentation"
-                      border="0"
-                      cellpadding="0"
-                      cellspacing="0"
-                      width="100%"
-                    >
-                      <tr>
-                        <td valign="middle" width="50%">
-                          <table
-                            role="presentation"
-                            cellspacing="0"
-                            cellpadding="0"
-                            border="0"
-                            width="100%"
-                          >
-                            <tr>
-                              <td
-                                class="text-product"
-                                style="text-align: left; padding: 20px 30px"
-                              >
-                                <div class="heading-section">
-                                  <span class="price"
-                                    >AED 150.00 (approx. ₹3,183.19)
-                                  </span>
-                                  <h2 style="font-size: 20px">
-                                    Royal blue square collar sexy stretchy
-                                    summer dress
-                                  </h2>
-                                  <p>
-                                    Royal blue square collar sexy stretchy
-                                    dress- Length: 88cm
-                                  </p>
-                                  <p>
-                                    <a
-                                      href="https://www.unboxbasics.com/boutique-products/rb-s1/royal-blue-square-collar-sexy-stretchy-summer-dress/aa0c9fa0-3f60-4a09-ba6e-b4744e28791a"
-                                      class="btn btn-black"
-                                      >Shop now</a
-                                    >
-                                  </p>
-                                </div>
-                              </td>
-                            </tr>
-                          </table>
-                        </td>
-                        <td valign="middle" width="50%">
-                          <table
-                            role="presentation"
-                            cellspacing="0"
-                            cellpadding="0"
-                            border="0"
-                            width="100%"
-                          >
-                            <tr>
-                              <td>
-                                <img
-                                  src="images/65_org_zoom (1).jpg"
-                                  alt=""
-                                  style="
-                                    width: 100%;
-                                    max-width: 600px;
-                                    height: auto;
-                                    margin: auto;
-                                    display: block;
-                                  "
-                                />
-                              </td>
-                            </tr>
-                          </table>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-          <!-- end:tr -->
-          <tr>
-            <td valign="middle" style="padding: 2em 0">
-              <table
-                align="center"
-                role="presentation"
-                cellspacing="0"
-                cellpadding="0"
-                border="0"
-                width="100%"
-                style="margin: auto"
-                class="bg_white"
-              >
-                <tr>
-                  <td>
-                    <div
-                      class="text"
-                      style="padding: 0 2.5em; text-align: center"
-                    >
-                      <p>
-                        <a
-                          href="https://www.unboxbasics.com/"
-                          class="btn btn-black-outline"
-                          >Start Shopping</a
-                        >
-                      </p>
-                    </div>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-          <!-- end tr -->
-          <!-- 1 Column Text + Button : END -->
-        </table>
-        <table
-          align="center"
-          role="presentation"
-          cellspacing="0"
-          cellpadding="0"
-          border="0"
-          width="100%"
-          style="margin: auto"
-        >
-          <tr>
-            <td valign="middle" class="bg_white footer">
-              <table>
-                <tr>
-                  <td style="text-align: center; width: 100%">
-                    <h3 class="heading">Stay Updated On Our Shopping</h3>
-                  </td>
-                  <td
-                    valign="middle"
-                    style="padding-top: 20px; text-align: right"
-                  >
-                    <ul class="social">
-                      <li>
-                        <img
-                          src="images/004-twitter-logo.png"
-                          alt=""
-                          style="
-                            width: 24px;
-                            max-width: 600px;
-                            height: auto;
-                            display: block;
-                          "
-                        />
-                      </li>
-                      <li>
-                        <img
-                          src="images/005-facebook.png"
-                          alt=""
-                          style="
-                            width: 24px;
-                            max-width: 600px;
-                            height: auto;
-                            display: block;
-                          "
-                        />
-                      </li>
-                      <li>
-                        <img
-                          src="images/006-instagram-logo.png"
-                          alt=""
-                          style="
-                            width: 24px;
-                            max-width: 600px;
-                            height: auto;
-                            display: block;
-                          "
-                        />
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-          <!-- end: tr -->
-          <tr>
-            <td class="bg_light" style="text-align: center">
-              <p>
-                No longer want to receive these email? You can
-                <a href="#" style="color: rgba(0, 0, 0, 0.8)"
-                  >Unsubscribe here</a
-                >
-              </p>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </center>
-  </body>
 </html>
